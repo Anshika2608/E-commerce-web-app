@@ -8,7 +8,7 @@ function Wishlist() {
   useEffect(() => {
     const fetchWishlist = async () => {
       try {
-        const res = await axios.get("wishlist.json");
+        const res = await axios.get("./wishlist.json");
         //  console.log(res)
         const wishlistWithKeys = res.data.liked.map((item, index) => ({
           ...item,

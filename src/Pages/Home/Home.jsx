@@ -25,7 +25,7 @@ function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("Latest_collections.json");
+        const response = await axios.get("./Latest_collections.json");
         console.log(response.data);
 
         setCollection(response.data.Products);
@@ -35,7 +35,7 @@ function Home() {
     };
     const womenData = async () => {
       try {
-        const res = await axios.get("Women.json");
+        const res = await axios.get("./Women.json");
         setWomen(res.data.women.slice(0, 4));
       } catch (err) {
         console.log(err);
@@ -48,7 +48,6 @@ function Home() {
 
   return (
     <>
-    
       <div className="pt-24">
         <Slider />
         <div className="flex justify-center items-center flex-wrap ">

@@ -15,7 +15,7 @@ export const MenContextProvider = ({ children }) => {
 
   const getProducts = async () => {
     try {
-      const response = await axios.get("Men_Products.json");
+      const response = await axios.get("./Men_Products.json");
       console.log(response.data);
 
       setMenProducts({
