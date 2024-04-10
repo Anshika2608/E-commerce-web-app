@@ -30,26 +30,30 @@ export const MenContextProvider = ({ children }) => {
   };
   const getSingleProduct = async (productId) => {
     try {
-      const response = await axios.get(`http://localhost:3032/Men/${productId}`);
-      setSingleProduct(response.data); 
-    //   console.log(singleProduct)// Assuming your API returns the product data
+      const response = await axios.get(
+        `http://localhost:3032/Men/${productId}`
+      );
+      setSingleProduct(response.data);
+      //   console.log(singleProduct)// Assuming your API returns the product data
     } catch (error) {
-        if (error.response) {
-          // The request was made and the server responded with a status code
-          console.log("Error response status:", error.response.status);
-          console.log("Error response data:", error.response.data);
-        } else if (error.request) {
-          // The request was made but no response was received
-          console.log("Error request:", error.request);
-        } else {
-          // Something happened in setting up the request that triggered an Error
-          console.log("Error message:", error.message);
-        }
+      if (error.response) {
+        // The request was made and the server responded with a status code
+        console.log("Error response status:", error.response.status);
+        console.log("Error response data:", error.response.data);
+      } else if (error.request) {
+        // The request was made but no response was received
+        console.log("Error request:", error.request);
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        console.log("Error message:", error.message);
       }
+    }
   };
 
   return (
-    <MenContext.Provider value={{ menProducts,getSingleProduct,singleProduct }}>
+    <MenContext.Provider
+      value={{ menProducts, getSingleProduct, singleProduct }}
+    >
       {children}
     </MenContext.Provider>
   );
